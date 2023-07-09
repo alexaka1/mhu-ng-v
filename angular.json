@@ -55,7 +55,23 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "optimization": {
+                "scripts": true,
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                },
+                "fonts": true
+              },
+              "outputHashing": "all",
+              "subresourceIntegrity": true,
+              "sourceMap": false,
+              "extractLicenses": true,
+              "namedChunks": false,
+              "localize": false,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "aot": true
             },
             "development": {
               "buildOptimizer": false,
@@ -104,8 +120,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
